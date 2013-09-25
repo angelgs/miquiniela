@@ -24,7 +24,7 @@ describe "Authentication" do
         before { valid_signin(user) }
 
         it { should have_title(user.name) }
-        it { should have_link('Usuarios',       href: users_path) }
+        it { should have_link('Competidores',       href: users_path) }
         it { should have_link('Perfil',     href: user_path(user)) }
         it { should have_link('Configuración',    href: edit_user_path(user)) }
         it { should have_link('Salir',    href: signout_path) }
