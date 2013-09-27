@@ -7,6 +7,7 @@ gem 'bootstrap-sass'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do

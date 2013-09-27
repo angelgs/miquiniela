@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @forecast.user_id %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @forecast.game_id %>
+</p>
+
+<p>
+  <strong>Home score:</strong>
+  <%= @forecast.home_score %>
+</p>
+
+<p>
+  <strong>Visitor score:</strong>
+  <%= @forecast.visitor_score %>
+</p>
+
+<%= link_to 'Edit', edit_forecast_path(@forecast) %> |
+<%= link_to 'Back', forecasts_path %>
