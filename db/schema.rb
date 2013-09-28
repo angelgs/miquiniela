@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926235020) do
+ActiveRecord::Schema.define(version: 20130928171822) do
 
   create_table "forecasts", force: true do |t|
     t.integer  "home_score"
@@ -41,6 +41,27 @@ ActiveRecord::Schema.define(version: 20130926235020) do
   add_index "games", ["stadium_id"], name: "index_games_on_stadium_id"
   add_index "games", ["team_home_id"], name: "index_games_on_team_home_id"
   add_index "games", ["team_visitor_id"], name: "index_games_on_team_visitor_id"
+
+  create_table "pool_games", force: true do |t|
+    t.integer  "pool_id"
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pool_games", ["game_id"], name: "index_pool_games_on_game_id"
+  add_index "pool_games", ["pool_id", "game_id"], name: "index_pool_games_on_pool_id_and_game_id", unique: true
+  add_index "pool_games", ["pool_id"], name: "index_pool_games_on_pool_id"
+
+  create_table "pools", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "schedule_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pools", ["name"], name: "index_pools_on_name", unique: true
 
   create_table "schedules", force: true do |t|
     t.string   "number"
