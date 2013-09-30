@@ -1,7 +1,13 @@
 es:
   date:
+    day_names: [Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo]
+    month_names: [~,Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
     formats:
       short: "%d/%m/%Y"
+    order:
+      - month
+      - day
+      - year
   time:
     formats:
       short: "%H:%M"

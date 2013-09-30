@@ -11,23 +11,28 @@ gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do
-    gem 'thin'  
+    gem 'thin'
     gem 'sqlite3'
     gem 'rspec-rails'
     gem 'guard-rspec'
     gem 'spork-rails'
     gem 'guard-spork'
-    gem 'childprocess'    
+    gem 'childprocess'
 end
 
 group :test do
     gem 'selenium-webdriver'
     gem 'capybara'
-    gem 'rb-notifu'
-    gem 'wdm'
     gem 'factory_girl_rails'
     gem 'cucumber-rails', '1.4.0', :require => false
-    gem 'database_cleaner'  
+    gem 'database_cleaner'
+    # para linux
+    gem 'libnotify'
+    # Para windows
+#    gem 'rb-notifu'
+#    gem 'wdm'
+    # Para OS X
+#    gem 'growl'
 end
 
 # Use SCSS for stylesheets
@@ -71,5 +76,3 @@ group :production do
     gem 'pg'
     gem 'rails_12factor'
 end
-
-
