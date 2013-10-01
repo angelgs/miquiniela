@@ -1,6 +1,11 @@
-<h1>Editing season</h1>
+<% provide(:title, 'Editar torneo') %>
+<div class="row">
+  <div class="span6 offset3">
+
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @season %> |
 <%= link_to 'Back', seasons_path %>
+  </div>
+</div>

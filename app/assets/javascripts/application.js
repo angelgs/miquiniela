@@ -14,4 +14,25 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require bootstrap
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.es
+//= require bootstrap-datetimepicker
+//= require locales/bootstrap-datetimepicker.es
 //= require_tree .
+
+$(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+    $(this).datepicker({
+                       format: "dd/mm/yyyy",
+                       language: "es",
+                       todayBtn: true,
+                       autoclose: true,
+                       todayHighlight: true
+    })
+});
+$(document).on("focus", "[data-behaviour~='datetimepicker']", function(e){
+    $(this).datetimepicker({
+                       language: "es",
+                       pick12HourFormat: true
+    })
+});

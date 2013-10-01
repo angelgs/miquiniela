@@ -1,13 +1,50 @@
 es:
+  formtastic:
+    titles:
+    labels:
+      season:
+        name: "Nombre"
+        start_at: "Inicia el"
+        end_at: "Termina el"
+    hints:
+    placeholders:
+    actions:
+      create: "Crear %{model}"
+      update: "Guardar"
+      reset: "Reset"
+      cancel: "Cancelar"
   date:
     day_names: [Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo]
-    month_names: [~,Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
-    formats:
+    month_names: [~,Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]    
+    datepicker:
+      default: "dd/mm/yyyy"
       short: "%d/%m/%Y"
+      long: "dd MM, yyyy"
+    formats:
+      default: "dd/mm/yyyy"
+      short: "%d/%m/%Y"
+      long: ! '%B %d, %Y'
     order:
-      - month
       - day
+      - month      
       - year
   time:
     formats:
       short: "%H:%M"
+  activerecord:
+    attributes:
+      pool:
+        owner: "Propietario"
+        schedule: "Jornada"
+        name: "Nombre"
+        selected_games: "Juegos"
+    errors:
+      models:
+        season:
+          attributes:
+            name:
+              blank: "No puede estar vacio"
+            start_at:
+              blank: "No puede estar vacio"
+            end_at:
+              blank: "No puede estar vacio"

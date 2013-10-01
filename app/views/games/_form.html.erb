@@ -1,33 +1,26 @@
-<%= form_for(@game) do |f| %>
-  <% if @game.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+<%= semantic_form_for @game do |f| %>
+<fieldset>
+    <legend>Crear Juego</legend>
 
-      <ul>
-      <% @game.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :start_at %><br>
-    <%= f.datetime_select :start_at %>
-  </div>
-  <div class="field">
-    <%= f.label :stadium_id %><br>
-    <%= f.number_field :stadium_id %>
-  </div>
-  <div class="field">
-    <%= f.label :team_home_id %><br>
-    <%= f.number_field :team_home_id %>
-  </div>
-  <div class="field">
-    <%= f.label :team_visitor_id %><br>
-    <%= f.number_field :team_visitor_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.semantic_errors %>
+    <%= f.inputs do %>
+        <div id="datetimepicker" class="input-append date">
+        <%= f.input :start_at, :as => :string, 
+            :input_html => {
+                "data-format" => "dd/MM/yyyy HH:mm:ss PP",  
+                "data-behaviour" => "datetimepicker"}  
+         %>
+         <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+          </i>
+        </span>            
+         </div>
+        <%= f.input :stadium %>
+        <%= f.input :team_home %>
+        <%= f.input :team_visitor %>
+    <% end %>
+    <%= f.actions do %>
+        <%= f.action :submit,:button_html => { :class => "btn btn-large btn-primary"} %>        
+    <% end %>
+</fieldset>
 <% end %>

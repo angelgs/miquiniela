@@ -8,6 +8,8 @@ gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-datetimepicker-rails'
+gem 'formtastic-bootstrap'
 
 
 group :development, :test do
@@ -27,10 +29,10 @@ group :test do
     gem 'cucumber-rails', '1.4.0', :require => false
     gem 'database_cleaner'
     # para linux
-    gem 'libnotify'
+#    gem 'libnotify'
     # Para windows
-#    gem 'rb-notifu'
-#    gem 'wdm'
+    gem 'rb-notifu'
+    gem 'wdm'
     # Para OS X
 #    gem 'growl'
 end

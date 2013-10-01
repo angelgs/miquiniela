@@ -1,5 +1,7 @@
-<h1>New season</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', seasons_path %>
+<% provide(:title, 'Crear torneo') %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= render 'form' %>
+    <%= link_to 'Back', seasons_path %>
+  </div>
+</div>
