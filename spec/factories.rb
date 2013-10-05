@@ -5,4 +5,10 @@ FactoryGirl.define do
         password "foobar"
         password_confirmation "foobar"
     end
+
+    factory :season do
+      sequence(:name)     { |n| "Torneo #{n} liga MX" }
+      sequence(:start_at) { |n| Date.today + n }
+      sequence(:end_at)   { |n| Date.today + (n*10) }
+    end
 end

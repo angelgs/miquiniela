@@ -1,11 +1,13 @@
 class Pool < ActiveRecord::Base
     validates :name,    presence: true, length: { maximum: 100 }
+    validate :user_id, presence: true
+    validate :schedule_id, presence: true
 
     belongs_to :owner, :class_name => "User",
          :foreign_key => "user_id"
     belongs_to :schedule
 
-    has_many :pool_games
+    has_many :pool_games, dependent: :destroy
     has_many :selected_games,  :through => :pool_games,
         :class_name => "Game",
         :source => :game

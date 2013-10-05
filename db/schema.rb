@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20130928171822) do
   add_index "forecasts", ["user_id"], name: "index_forecasts_on_user_id"
 
   create_table "games", force: true do |t|
-    t.datetime "start_at"
-    t.integer  "team_home_id"
-    t.integer  "team_visitor_id"
+    t.datetime "start_at",           null: false
+    t.integer  "team_home_id",       null: false
+    t.integer  "team_visitor_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "schedule_id"
@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(version: 20130928171822) do
   add_index "pool_games", ["pool_id"], name: "index_pool_games_on_pool_id"
 
   create_table "pools", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "schedule_id"
-    t.string   "name"
+    t.integer  "user_id",                 null: false
+    t.integer  "schedule_id",             null: false
+    t.string   "name",        limit: 100, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,21 +64,20 @@ ActiveRecord::Schema.define(version: 20130928171822) do
   add_index "pools", ["name"], name: "index_pools_on_name", unique: true
 
   create_table "schedules", force: true do |t|
-    t.string   "number"
-    t.date     "start_at"
-    t.date     "end_at"
+    t.string   "name",       limit: 100, null: false
+    t.date     "start_at",               null: false
+    t.date     "end_at",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "season_id"
   end
 
-  add_index "schedules", ["number"], name: "index_schedules_on_number", unique: true
   add_index "schedules", ["season_id"], name: "index_schedules_on_season_id"
 
   create_table "seasons", force: true do |t|
-    t.string   "name"
-    t.date     "start_at"
-    t.date     "end_at"
+    t.string   "name",       limit: 100, null: false
+    t.date     "start_at",               null: false
+    t.date     "end_at",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,7 +86,7 @@ ActiveRecord::Schema.define(version: 20130928171822) do
   add_index "seasons", ["start_at"], name: "index_seasons_on_start_at"
 
   create_table "stadia", force: true do |t|
-    t.string   "name"
+    t.string   "name",       limit: 100, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -95,7 +94,7 @@ ActiveRecord::Schema.define(version: 20130928171822) do
   add_index "stadia", ["name"], name: "index_stadia_on_name", unique: true
 
   create_table "teams", force: true do |t|
-    t.string   "name"
+    t.string   "name",       limit: 50, null: false
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -104,8 +103,8 @@ ActiveRecord::Schema.define(version: 20130928171822) do
   add_index "teams", ["name"], name: "index_teams_on_name", unique: true
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",            limit: 100, null: false
+    t.string   "email",           limit: 50,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"

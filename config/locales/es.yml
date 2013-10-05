@@ -15,7 +15,7 @@ es:
       cancel: "Cancelar"
   date:
     day_names: [Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo]
-    month_names: [~,Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]    
+    month_names: [~,Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
     datepicker:
       default: "dd/mm/yyyy"
       short: "%d/%m/%Y"
@@ -26,7 +26,7 @@ es:
       long: ! '%B %d, %Y'
     order:
       - day
-      - month      
+      - month
       - year
   time:
     formats:
@@ -47,4 +47,8 @@ es:
             start_at:
               blank: "No puede estar vacio"
             end_at:
+              blank: "No puede estar vacio"
+        schedule:
+          attributes:
+            season_id:
               blank: "No puede estar vacio"

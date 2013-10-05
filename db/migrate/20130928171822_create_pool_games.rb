@@ -1,8 +1,8 @@
 class CreatePoolGames < ActiveRecord::Migration
   def change
     create_table :pool_games do |t|
-      t.integer :pool_id
-      t.integer :game_id
+      t.integer :pool_id, :null => false
+      t.integer :game_id, :null => false
 
       t.timestamps
     end
