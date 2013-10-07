@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20130928171822) do
   add_index "games", ["team_visitor_id"], name: "index_games_on_team_visitor_id"
 
   create_table "pool_games", force: true do |t|
-    t.integer  "pool_id"
-    t.integer  "game_id"
+    t.integer  "pool_id",    null: false
+    t.integer  "game_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

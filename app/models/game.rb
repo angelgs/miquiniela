@@ -17,7 +17,7 @@ class Game < ActiveRecord::Base
 
 
     delegate :name, :to => :stadium, :prefix => true
-    delegate :name, :start_at, :end_at, :to => :schedule, :prefix => true
+    delegate :name, :start_at, :end_at, :to => :schedule, :prefix => true, :allow_nil => true
     delegate :name, :image, :to => :team_home, :prefix => true
     delegate :name, :image, :to => :team_visitor, :prefix => true
 

@@ -22,7 +22,7 @@ describe Game do
 
   it { should be_valid }
 
-  describe "when start date is not present " do
+  describe "when start date is not present" do
       before {@game.start_at = nil}
       it { should_not be_valid }
   end
@@ -44,6 +44,16 @@ describe Game do
 
   describe "when schedule is not present" do
     before { @game.schedule = nil}
+    it { should_not be_valid }
+  end
+  
+  describe "when team home is not present" do
+    before { @game.team_home = nil}
+    it { should_not be_valid }
+  end
+
+  describe "when team visitor is or present" do
+    before { @game.team_visitor = nil}
     it { should_not be_valid }
   end
 
