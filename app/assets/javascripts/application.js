@@ -28,11 +28,11 @@ $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
                        todayBtn: true,
                        autoclose: true,
                        todayHighlight: true
-    })
+    });
 });
 $(document).on("focus", "[data-behaviour~='datetimepicker']", function(e){
     $(this).datetimepicker({
                        language: "es",
                        pick12HourFormat: true
-    })
+    });
 });

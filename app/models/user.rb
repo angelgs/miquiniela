@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
     validates :password_confirmation, presence: true
 
     has_many :pools
+    has_many :forecast
 
     def User.new_remember_token
         SecureRandom.urlsafe_base64

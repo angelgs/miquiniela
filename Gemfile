@@ -4,12 +4,13 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass'
-gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-datetimepicker-rails'
 gem 'formtastic-bootstrap'
+gem 'faker'
+#gem 'populator'
 
 
 group :development, :test do
@@ -29,10 +30,10 @@ group :test do
     gem 'cucumber-rails', '1.4.0', :require => false
     gem 'database_cleaner'
     # para linux
-    gem 'libnotify'
+#    gem 'libnotify'
     # Para windows
-#    gem 'rb-notifu'
-#    gem 'wdm'
+    gem 'rb-notifu'
+    gem 'wdm'
     # Para OS X
 #    gem 'growl'
 end

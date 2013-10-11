@@ -54,14 +54,14 @@ ActiveRecord::Schema.define(version: 20130928171822) do
   add_index "pool_games", ["pool_id"], name: "index_pool_games_on_pool_id"
 
   create_table "pools", force: true do |t|
-    t.integer  "user_id",                 null: false
-    t.integer  "schedule_id",             null: false
-    t.string   "name",        limit: 100, null: false
+    t.integer  "user_id",                null: false
+    t.string   "name",       limit: 100, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "pools", ["name"], name: "index_pools_on_name", unique: true
+  add_index "pools", ["user_id"], name: "index_pools_on_user_id"
 
   create_table "schedules", force: true do |t|
     t.string   "name",       limit: 100, null: false

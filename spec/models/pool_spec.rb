@@ -1,16 +1,46 @@
 require 'spec_helper'
 
 describe Pool do
+
+  let(:user) { FactoryGirl.create(:user) }
+
   before {
-    user = User.new(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
-    season = Season.create(name: 'Torneo Apertura 2013', start_at: Date.today, end_at: Date.today + 90)
-    schedule = Schedule.create(season: season, name: 'Jornada 1', start_at: Date.today + 1, end_at: Date.today + 4)
-    stadium = Stadium.create(name: 'Luis Pirata Fuente')
-    team_home = Team.create(name: 'Tiburones Rojos de Veracruz')
-    team_visitor = Team.create(name: 'Jaguares de Chiapas')
-    game = Game.new(start_at: schedule.start_at + 1, stadium: stadium, schedule: schedule, team_home: team_home, team_visitor: team_visitor)    
-    @pool = Pool.new(name: 'Torneo apertura 2013 - Jornada 1', schedule: schedule)
+    @pool = user.pools.build(name: 'Torneo apertura 2013 - Jornada 1' )
   }
-  
+
   subject { @pool }
+
+  it { should respond_to(:name) }
+  it { should respond_to(:user_id) }
+  it { should respond_to(:user) }
+  its(:user) { should eq user }
+  it { should respond_to(:games) }
+
+
+  it { should be_valid }
+
+  describe "when user is not present" do
+    before { @pool.user = nil}
+    it { should_not be_valid }
+  end
+
+  describe "when name is not present" do
+      before { @pool.name = "" }
+      it { should_not be_valid }
+  end
+
+  describe "when name is too long" do
+      before { @pool.name = "a" * 101 }
+      it { should_not be_valid }
+  end
+
+  describe "when name already exist" do
+      before do
+          pool_same_name = @pool.dup
+          pool_same_name.name = @pool.name.upcase
+          pool_same_name.save
+      end
+      it { should_not be_valid }
+  end
+
 end

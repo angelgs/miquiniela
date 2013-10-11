@@ -32,13 +32,15 @@ es:
     formats:
       short: "%H:%M"
   activerecord:
+    errors:
+       messages:
+         record_invalid: "El registro es invalido"
     attributes:
       pool:
         owner: "Propietario"
         schedule: "Jornada"
         name: "Nombre"
         selected_games: "Juegos"
-    errors:
       models:
         season:
           attributes:
@@ -52,3 +54,9 @@ es:
           attributes:
             season_id:
               blank: "No puede estar vacio"
+        pool:
+          attributes:
+            name:
+              blank: "No puede estar vacio"
+            pool_games:
+              invalid: "es invalido"

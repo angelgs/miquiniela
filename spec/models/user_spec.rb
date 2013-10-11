@@ -13,6 +13,7 @@ describe User do
     it { should respond_to(:password_confirmation) }
     it { should respond_to(:remember_token) }
     it { should respond_to(:authenticate) }
+    it { should respond_to(:pools) }
 
     it { should be_valid }
 
@@ -75,7 +76,7 @@ describe User do
     describe "when password is not present" do
         before do
             @user = User.new(name: "Example User", email: "user@example.com",
-                                          password: " ", password_confirmation: " ")            
+                                          password: " ", password_confirmation: " ")
         end
         it { should_not be_valid }
     end
@@ -109,5 +110,5 @@ describe User do
     describe "remember token" do
         before { @user.save }
         its(:remember_token) { should_not be_blank }
-    end    
+    end
 end
